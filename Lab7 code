@@ -1,0 +1,82 @@
+import java.util.*;
+
+interface CalcOp
+{
+    abstract float add(float num1,float num2);
+    
+    abstract float subtract(float num1,float num2);
+    abstract float multiply(float num1,float num2);
+    abstract float divide(float num1,float num2);
+}
+class Calculator implements CalcOp
+{
+    float result;
+    public float add(float num1,float num2)
+    {
+        result=num1+num2;
+        return result;
+    }
+    public float subtract(float num1,float num2)
+    {
+        result=num1-num2;
+        return result;
+    }
+    public float multiply(float num1,float num2)
+    {
+        result=num1*num2;
+        return result;
+    }
+    public float divide(float num1,float num2)
+    {
+        result=num1/num2;
+        return result;
+    }
+}
+class operations
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int opt;
+        System.out.println("0-Exit\n1-Addition\n2-Subtraction\n3-Multiplicatin\n4-Division");
+        System.out.println("\n");
+        System.out.print("Please Choose an Option: ");
+        opt=sc.nextInt();
+        float a,b;
+        Calculator calc=new Calculator();
+        while(opt!=0)
+        {
+            System.out.print("Please enter the first number ");
+            a=sc.nextFloat();
+            System.out.print("Please enter the second number ");
+            b=sc.nextFloat();
+            switch(opt)
+            {
+                case 1:
+                {
+                    System.out.println(calc.add(a,b));
+                }
+                break;
+                case 2:
+                {
+                    System.out.println(calc.subtract(a,b));
+                }
+                break;
+                case 3:
+                {
+                    System.out.println(calc.multiply(a,b));
+                }
+                break;
+                case 4:
+                {
+                    System.out.println(calc.divide(a,b));
+                }
+                break;
+            }
+            System.out.println();
+            System.out.println("0-Exit\n1-Addition\n2-Subtraction\n3-Multiplicatin\n4-Division");
+            System.out.print("Please Choose an Option: ");
+            opt=sc.nextInt();
+        }
+
+    }
+}
